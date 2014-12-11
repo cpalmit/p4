@@ -1,0 +1,6 @@
+<?
+
+class Hold extends Eloquent { 
+
+    
+}
