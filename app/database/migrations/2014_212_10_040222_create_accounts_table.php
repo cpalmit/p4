@@ -21,7 +21,7 @@ class CreateAccountsTable extends Migration {
 			$table->timestamps();
 
 			// content
-			$table->integer("cat_id")->unsigned(); // FK
+			$table->integer("category_id")->unsigned(); // FK
 			$table->string("name");
 			$table->string("website");
 			$table->string("facebook");
@@ -32,7 +32,7 @@ class CreateAccountsTable extends Migration {
 			$table->string("flickr");
 
 			// FK
-			$table->foreign("cat_id")->references("id")->on("categories");
+			$table->foreign("category_id")->references("id")->on("categories");
     	});
 	}
 
