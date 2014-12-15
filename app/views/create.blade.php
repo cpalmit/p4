@@ -14,7 +14,7 @@
 	</form>
 -->
 Add an account to the directory.
-	{{ Form::open(array('url' => '/create', 'method' => 'GET')); }}	
+	{{ Form::open(array('url' => '/create')); }}	
 	
 		{{ Form::label('name', 'Name'); }}
 		{{ Form::text('name'); }} 

@@ -10,7 +10,7 @@ class AccountController extends BaseController {
 
 	// show homepage with all accounts
 	public function getIndex() {
-	
+		return View::make('index');
 	}
 
 
@@ -26,7 +26,12 @@ class AccountController extends BaseController {
 	
 	// process create new account form
 	public function postCreate() {
-	
+
+		$account = new Account();
+		$account->fill(Input::except('categories'));
+		$account->save();
+
+		return Redirect::action('AccountController@getIndex')->with('flash_message','Your account has been added.');
 	}
 
 	

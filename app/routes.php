@@ -11,32 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
 
-
-// Route::get('/create', function()
-// {
-// 	$categories=Category::getCategory();
-// 	return View::make('create')
-// 		->with('categories',$categories);
-// });
+Route::get('/', 'AccountController@getIndex');
 
 Route::get('/create', 'AccountController@getCreate');
-
-
-
-Route::get('/categories', function() {
-	$categories = Array();
-	$collection = Category::all();
-		foreach($collection as $category) {
-			$categories[$category->id] = $category->name;
-		}
-	return $categories;
-});
-
+Route::post('/create', 'AccountController@postCreate');
 
 
 Route::get('/createcat', function() {
@@ -54,23 +33,6 @@ Route::get('/createcat', function() {
 
 });
 
-Route::get('/createaccount', function() {
-
-    # Instantiate a new Category model class
-    $account = new Account();
-
-    # Set 
-    $account->name = "French Department";
-	$account->website = "https://www.wellesley.edu/french";
-	$account->facebook = "https://www.facebook.com/pages/Wellesley-College-French-Department/112088402145775";
-	$account->category_id = 4;
-
-    # This is where the Eloquent ORM magic happens
-    $account->save();
-
-    return "Account added.";
-
-});
 
 
 
