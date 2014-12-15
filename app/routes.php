@@ -13,79 +13,108 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('index');
 });
 
 
-Route::get('/get-environment',function() {
+// Route::get('/create', function()
+// {
+// 	$categories=Category::getCategory();
+// 	return View::make('create')
+// 		->with('categories',$categories);
+// });
 
-    echo "Environment: ".App::environment();
+Route::get('/create', 'AccountController@getCreate');
 
-});
 
-Route::get('/error',function() {
 
-    # Class Foobar should not exist, so this should create an error
-    $foo = new Foobar;
-
-});
-
-Route::get('mysql-test', function() {
-
-    # Print environment
-    echo 'Environment: '.App::environment().'<br>';
-
-    # Use the DB component to select all the databases
-    $results = DB::select('SHOW DATABASES;');
-
-    # If the "Pre" package is not installed, you should output using print_r instead
-    echo print_r($results);
-
+Route::get('/categories', function() {
+	$categories = Array();
+	$collection = Category::all();
+		foreach($collection as $category) {
+			$categories[$category->id] = $category->name;
+		}
+	return $categories;
 });
 
 
 
-Route::get('/debug', function() {
+Route::get('/createcat', function() {
 
-    echo '<pre>';
+    # Instantiate a new Category model class
+    $category = new Category();
 
-    echo '<h1>environment.php</h1>';
-    $path   = base_path().'/environment.php';
+    # Set 
+    $category->name = "sports";
 
-    try {
-        $contents = 'Contents: '.File::getRequire($path);
-        $exists = 'Yes';
+    # This is where the Eloquent ORM magic happens
+    $category->save();
+
+    return "Category added.";
+
+});
+
+Route::get('/createaccount', function() {
+
+    # Instantiate a new Category model class
+    $account = new Account();
+
+    # Set 
+    $account->name = "French Department";
+	$account->website = "https://www.wellesley.edu/french";
+	$account->facebook = "https://www.facebook.com/pages/Wellesley-College-French-Department/112088402145775";
+	$account->category_id = 4;
+
+    # This is where the Eloquent ORM magic happens
+    $account->save();
+
+    return "Account added.";
+
+});
+
+
+
+Route::get('/printall', function() {
+
+    # The all() method will fetch all the rows from a Model/table
+    $accounts = Account::all();
+
+    # Make sure we have results before trying to print them...
+    if($accounts->isEmpty() != TRUE) {
+
+        # Typically we'd pass $books to a View, but for quick and dirty demonstration, let's just output here...
+        foreach($accounts as $account) {
+        	$twitter = $account->twitter;
+        	
+        	if ($twitter) {
+        		$tweet = '<a href="' . $account->twitter. '" /> <img src="images/twitter.png" height="20" width="20" /></a>';
+        	} else {
+        		$tweet = "";
+        	}
+        	
+        	//echo $account->name. ' | <a href="' . $account->twitter. '" /> <img src="images/twitter.png" /></a><br>';
+        	echo $account->name . ' '. $tweet . '<br>';
+        }
+    } else {
+        return 'No accounts found';
     }
-    catch (Exception $e) {
-        $exists = 'No. Defaulting to `production`';
-        $contents = '';
-    }
-
-    echo "Checking for: ".$path.'<br>';
-    echo 'Exists: '.$exists.'<br>';
-    echo $contents;
-    echo '<br>';
-
-    echo '<h1>Environment</h1>';
-    echo App::environment().'</h1>';
-
-    echo '<h1>Debugging?</h1>';
-    if(Config::get('app.debug')) echo "Yes"; else echo "No";
-
-    echo '<h1>Database Config</h1>';
-    print_r(Config::get('database.connections.mysql'));
-
-    echo '<h1>Test Database Connection</h1>';
-    try {
-        $results = DB::select('SHOW DATABASES;');
-        echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-        echo "<br><br>Your Databases:<br><br>";
-        print_r($results);
-    } 
-    catch (Exception $e) {
-        echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-    }
-
-    echo '</pre>';
 
 });
+
+Route::get('/getacaddept', function() {
+
+	$accounts = Account::where('category_id','LIKE',4)->get();
+
+	if($accounts){
+		foreach($accounts as $account) {
+            echo $account->name.'<br>';
+        }
+        
+	} else {
+		echo "sorry";
+	}
+	
+	
+
+});
+
