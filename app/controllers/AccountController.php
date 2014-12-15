@@ -10,7 +10,10 @@ class AccountController extends BaseController {
 
 	// show homepage with all accounts
 	public function getIndex() {
-		return View::make('index');
+		$accounts=Account::all();
+		
+		return View::make('index')
+			->with('accounts',$accounts);
 	}
 
 
