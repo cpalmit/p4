@@ -5,41 +5,60 @@
 @stop
 
 @section("content")
+<div class="row">
 	<h2>Add an Account</h2>
 	
-Add an account to the directory.
-	{{ Form::open(array('url' => '/create')); }}	
-	
+
+	{{ Form::open(['url' => url('/create'), 'class' => 'form-horizontal', 'role'=> 'form']) }}	
+	<div class="form-group">
 		{{ Form::label('name', 'Name') }}
-		{{ Form::text('name',Input::old('name')) }} 
-		<br>
+		{{ Form::text('name', null, ['class'=>'form-control', 'required']) }} 
+	</div>
+	
+	<div class="form-group">	
 		{{ Form::label('website', 'Website') }}
-		{{ Form::text('website') }} 
-		<br>
+		{{ Form::text('website', null, ['class'=>'form-control']) }} 
+	</div>
+	
+	<div class="form-group">
 		{{ Form::label('facebook', 'Facebook') }}
-		{{ Form::text('facebook') }} 
-		<br>
+		{{ Form::text('facebook', null, ['class'=>'form-control']) }} 
+	</div>
+	
+	<div class="form-group">
 		{{ Form::label('twitter', 'Twitter') }}
-		{{ Form::text('twitter') }} 
-		<br>
+		{{ Form::text('twitter', null, ['class'=>'form-control']) }} 
+	</div>
+	
+	<div class="form-group">
 		{{ Form::label('instagram', 'Instagram') }}
-		{{ Form::text('instagram') }} 
-		<br>
+		{{ Form::text('instagram', null, ['class'=>'form-control']) }} 
+	</div>
+	
+	<div class="form-group">
 		{{ Form::label('youtube', 'YouTube') }}
-		{{ Form::text('youtube') }} 
-		<br>
+		{{ Form::text('youtube', null, ['class'=>'form-control']) }} 
+	</div>
+	
+	<div class="form-group">
 		{{ Form::label('tumblr', 'Tumblr') }}
-		{{ Form::text('tumblr') }} 
-		<br>
+		{{ Form::text('tumblr', null, ['class'=>'form-control']) }} 
+	</div>
+	
+	<div class="form-group">
 		{{ Form::label('flickr', 'Flickr') }}
-		{{ Form::text('flickr') }} 
-		<br>
+		{{ Form::text('flickr', null, ['class'=>'form-control']) }} 
+	</div>
+	
+	<div class="form-group">
 		{{ Form::label('category_id', 'Category') }}
-		{{ Form::select('category_id', $categories) }}
-		<br>
-		
-		{{ Form::submit('Add') }}
+		{{ Form::select('category_id', $categories, null, ['class'=>'form-control']) }}
+	</div>
+	
+	<div class="form-group">	
+		{{ Form::submit('Add', ['class'=>'btn btn-default'] ) }}
+	</div>
 	
 	{{ Form::close() }}
-	
+	</div>
 @stop
