@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/* label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 100px;
+    
+
+input[type=text], select {
+  display: inline-block;
+  float: left;
+  width: 300px;
+  margin-bottom:10px;
+}
+
+input[type=submit] {
+	float: left;
+	clear: left;
+} */
+
+.form-control{
+	width:33%;
+}
