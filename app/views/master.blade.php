@@ -7,6 +7,11 @@
 </head>
 <body>
 	<div class="container">
+	
+	@if(Session::get('flash_message'))
+		<div class="flash-message alert alert-info" role="alert">{{ Session::get("flash_message") }}</div>
+	@endif
+	
 	<h1>Wellesley College Social Media Directory</h1>
 	
 

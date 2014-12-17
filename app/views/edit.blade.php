@@ -8,6 +8,7 @@
 	<h2>Edit {{$account['name'] }} </h2>
 	
 	{{ Form::open(array('url' => '/edit')); }}
+		{{ Form::hidden('id',$account['id']); }}
 		
 		{{ Form::label('name', 'Name') }}
 		{{ Form::text('name', $account['name']) }}
@@ -43,6 +44,7 @@
 	
 	
 	{{ Form::open(array('url' => '/delete')) }}
+		{{ Form::hidden('id',$account['id']); }}
 		<button onClick='parentNode.submit();return false;'>Delete</button>
 	{{ Form::close() }}
 

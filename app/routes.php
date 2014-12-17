@@ -18,6 +18,10 @@ Route::get('/create', 'AccountController@getCreate');
 Route::post('/create', 'AccountController@postCreate');
 
 Route::get('/edit/{id}', 'AccountController@getEdit');
+Route::post('/edit', 'AccountController@postEdit');
+
+Route::post('/delete', 'AccountController@postDelete');
+
 
 
 Route::get('/createcat', function() {
