@@ -40,8 +40,22 @@ class AccountController extends BaseController {
 	
 	// form to edit account
 	public function getEdit($id) {
-	
+		try {
+			// get all the categories in case you want to change that
+			$categories=Category::getCategory();
+			
+			// get account 
+		    $account = Account::where('id','LIKE',$id)->findorFail($id);
+		    //$account = Account::where('id','LIKE',$id)->get();
+		    
+			} catch(exception $e) {
+		    return Redirect::action('AccountController@getIndex')->with('flash_message', 'Account not found');
+		}
+    	return View::make('edit')
+    		->with('account', $account)
+    		->with('categories', $categories);
 	}
+	
 	
 	
 	// process form to edit account

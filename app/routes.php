@@ -17,6 +17,8 @@ Route::get('/', 'AccountController@getIndex');
 Route::get('/create', 'AccountController@getCreate');
 Route::post('/create', 'AccountController@postCreate');
 
+Route::get('/edit/{id}', 'AccountController@getEdit');
+
 
 Route::get('/createcat', function() {
 
@@ -63,10 +65,23 @@ Route::get('/printall', function() {
 
 });
 
-Route::get('/getacaddept', function() {
+Route::get('/test', function() {
 
-	$accounts = Account::where('category_id','LIKE',4)->get();
+	$accounts = Account::where('id','LIKE',2)->findorFail(2);
+	
+	
+	
+	$categories = Array();
+		$collection = Category::all();
+			foreach($collection as $category) {
+				$categories[$category->id] = $category->name;
+			}
+	return $categories;
+	
+	
+	
 
+	/*echo $accounts['name'] ." " . $accounts['instagram'];
 	if($accounts){
 		foreach($accounts as $account) {
             echo $account->name.'<br>';
@@ -75,7 +90,7 @@ Route::get('/getacaddept', function() {
 	} else {
 		echo "sorry";
 	}
-	
+	*/
 	
 
 });
