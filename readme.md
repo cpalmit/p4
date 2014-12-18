@@ -11,8 +11,8 @@ well as search for a specific account. Additional functionality includes the abi
 Will update this link [demo](http://www.screencast.com/t/)
 
 ##Details
-Social media icons courtesy of [Graphics Fuel](http://www.graphicsfuel.com/2013/06/simple-flat-social-media-icons-psd-png/)
-The website icon was inspired by the above.
+Social media icons courtesy of [Graphics Fuel](http://www.graphicsfuel.com/2013/06/simple-flat-social-media-icons-psd-png/).
+The website icon was heavily influenced by the icons as well.
 
 
 ##Outside Code

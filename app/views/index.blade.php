@@ -6,16 +6,16 @@
 
 @section("content")
 	<div class="row">
-	{{ Form::open(['url' => url('/'), 'class' => 'navbar-form navbar-left', 'role'=> 'form']) }}
+	{{ Form::open(["url" => url("/"), "class" => "navbar-form navbar-left", "role"=> "form"]) }}
 		<a href="{{ action('AccountController@getCreate') }}" class="btn btn-primary">Add account</a>
 		<a href="{{ action('AccountController@getSelect') }}" class="btn btn-primary">Edit account</a>
 		
 		<div class="form-group">
-			{{ Form::text('query', null, ['class'=>'form-control']) }} 
+			{{ Form::text("query", null, ["class"=>"form-control"]) }} 
 		</div>
 		
 		<div class="form-group">	
-			{{ Form::submit('Search', ['class'=>'btn btn-primary'] ) }}
+			{{ Form::submit("Search", ["class"=>"btn btn-primary"] ) }}
 		</div>
 		<a href="{{ action('AccountController@getIndex') }}" class="btn btn-primary">Clear search results</a>
 		
@@ -45,7 +45,7 @@
         </thead>
         <tbody>
        
-			{{Account::printrows($query);}}
+			{{ Account::printrows($query) }}
 		
 		
         </tbody>

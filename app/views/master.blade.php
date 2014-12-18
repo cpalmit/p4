@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 	<div class="row">
-	@if(Session::get('flash_message'))
+	@if(Session::get("flash_message"))
 		<div class="flash-message alert alert-info" role="alert">{{ Session::get("flash_message") }}</div>
 	@endif
 	

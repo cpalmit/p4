@@ -9,7 +9,7 @@ class Account extends Eloquent {
     
         // account belongs to category
         // Define an inverse one-to-many relationship.
-        return $this->belongsTo('Category');
+        return $this->belongsTo("Category");
     }
     
     
@@ -17,12 +17,12 @@ class Account extends Eloquent {
     public static function search($query) {
         if($query) {
           
-            $accounts = Account::with('category')
-            ->whereHas('category', function($q) use($query) {
-                $q->where('name', 'LIKE', "%$query%");
+            $accounts = Account::with("category")
+            ->whereHas("category", function($q) use($query) {
+                $q->where("name", "LIKE", "%$query%");
             })
-            ->orWhere('name', 'LIKE', "%$query%")
-            ->orderBy('name')->get();
+            ->orWhere("name", "LIKE", "%$query%")
+            ->orderBy("name")->get();
         }
         
         return $accounts;
