@@ -10,10 +10,10 @@ class AccountController extends BaseController {
 
 	// show homepage with all accounts
 	public function getIndex() {
-		$accounts=Account::orderBy('name')->get();
-		
+		//$accounts=Account::orderBy('name')->get();
+		$query=null;
 		return View::make('index')
-			->with('accounts',$accounts);
+			->with('query',$query);		
 			
 	}
 	

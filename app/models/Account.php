@@ -40,8 +40,51 @@ class Account extends Eloquent {
 			}
 		return $accounts;
 	}
+	
+	// helper function- a somewhat crazy looking function that checks whether or not a site exists for a given account
+	// and puts it in a td if it does exist
+	public static function exist($var, $type) {
+		$site = $var->$type;
+		
+		 	if ($site) {
+					$td = '<td><a href="'.$site.'" target="_blank" /><img src="images/'.$type.'.png" height="30" width="30" /></a></td>';
+				} else {
+					$td = '<td></td>';
+				}
+			return $td;
+	}
+	
+	// helper function- does the social media account exist?
+	public static function printrows($query) {
+	
+		
+		Log::info("query is " . $query);
+		if ($query==null) {
+			$collection = Account::orderBy('name')->get();
+		
+		} else {
+			$collection = Account::search($query);
+		}
+		
+		 	foreach($collection as $account){
+		 		$row = '<td>'.$account->name.'</a></td>';
+				$row .= Account::exist($account,"website");
+				$row .= Account::exist($account,"facebook");
+				$row .= Account::exist($account,"twitter");
+				$row .= Account::exist($account,"instagram");
+				$row .= Account::exist($account,"youtube");
+				$row .= Account::exist($account,"tumblr");
+				$row .= Account::exist($account,"flickr");
+			
+				echo "<tr>".$row."</tr>";
+			}
+		 
+	}
+	
+	
     
     /*
+    // prints one table row for each account
     public static function printAccount() {
     
         $accounts = Account::all();
@@ -59,7 +102,7 @@ class Account extends Eloquent {
 					$tweet = "";
 				}
 			
-				//echo $account->name. ' | <a href="' . $account->twitter. '" /> <img src="images/twitter.png" /></a><br>';
+				
 				echo $account->name . ' '. $tweet . '<br>';
 			}
 		} else {

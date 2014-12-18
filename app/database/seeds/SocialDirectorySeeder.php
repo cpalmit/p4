@@ -34,7 +34,6 @@ class SocialDirectorySeeder extends Seeder {
 		$wellesley->instagram = "http://www.instagram.com/wellesleycollege";
 		$wellesley->youtube = "http://www.youtube.com/wellesleycollege";
 		$wellesley->flickr = "https://www.flickr.com/photos/wellesleycollege";
-		# Associate has to be called *before* the account is created (save())
 		$wellesley->category()->associate($adminDepts); 
 		$wellesley->save();
 
@@ -43,7 +42,6 @@ class SocialDirectorySeeder extends Seeder {
 		$bluejazz->website = "https://sites.google.com/a/wellesley.edu/bluejazz-strings/";
 		$bluejazz->facebook = "https://www.facebook.com/WellesleyBlueJazz";
 		$bluejazz->twitter = "https://www.twitter.com/bluejazznotes";
-		# Associate has to be called *before* the account is created (save())
 		$bluejazz->category()->associate($orgs); 
 		$bluejazz->save();
 		

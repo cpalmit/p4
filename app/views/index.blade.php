@@ -44,18 +44,10 @@
             </tr>
         </thead>
         <tbody>
-    	@foreach($accounts as $account)
-		<tr>
-			<td>{{{ $account->name }}}</td>
-			<td><a href=" {{{ $account->website }}}" target="_blank" /> <img src="images/website.png" height="30" width="30" /></a></td>
-			<td><a href=" {{{ $account->facebook }}}" target="_blank" /> <img src="images/facebook.png" height="30" width="30" /></a></td>
-			<td><a href=" {{{ $account->twitter }}}" target="_blank" /> <img src="images/twitter.png" height="30" width="30" /></a></td>
-			<td><a href=" {{{ $account->instagram }}}" target="_blank" /> <img src="images/instagram.png" height="30" width="30" /></a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		@endforeach
+       
+			{{Account::printrows($query);}}
+		
+		
         </tbody>
     </table>
 

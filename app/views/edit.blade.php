@@ -21,9 +21,7 @@
 	{{ Form::submit('Select',['class'=>'btn btn-default']) }}
 	{{ Form::close() }}
 	
-	
-	
-	
+
 	
 	<h2>Edit account for {{$account['name'] }} </h2>
 	
