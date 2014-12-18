@@ -13,6 +13,12 @@
 
 
 Route::get('/', 'AccountController@getIndex');
+Route::post('/', 'AccountController@postIndex');
+
+Route::get('/search', 'AccountController@getSearch'
+);
+Route::post('/search', 'AccountController@postSearch'
+);
 
 Route::get('/create', 'AccountController@getCreate');
 Route::post('/create', 'AccountController@postCreate');
@@ -20,31 +26,16 @@ Route::post('/create', 'AccountController@postCreate');
 Route::get('/edit/{id}', 'AccountController@getEdit');
 Route::post('/edit', 'AccountController@postEdit');
 
+Route::get('/select', 'AccountController@getSelect');
+Route::post('/select', 'AccountController@postSelect');
 Route::post('/delete', 'AccountController@postDelete');
 
-
-
-Route::get('/createcat', function() {
-
-    # Instantiate a new Category model class
-    $category = new Category();
-
-    # Set 
-    $category->name = "sports";
-
-    # This is where the Eloquent ORM magic happens
-    $category->save();
-
-    return "Category added.";
-
-});
 
 
 
 
 Route::get('/printall', function() {
 
-    # The all() method will fetch all the rows from a Model/table
     $accounts = Account::all();
 
     # Make sure we have results before trying to print them...
@@ -70,31 +61,6 @@ Route::get('/printall', function() {
 });
 
 Route::get('/test', function() {
-
-	$accounts = Account::where('id','LIKE',2)->findorFail(2);
-	
-	
-	
-	$categories = Array();
-		$collection = Category::all();
-			foreach($collection as $category) {
-				$categories[$category->id] = $category->name;
-			}
-	return $categories;
-	
-	
-	
-
-	/*echo $accounts['name'] ." " . $accounts['instagram'];
-	if($accounts){
-		foreach($accounts as $account) {
-            echo $account->name.'<br>';
-        }
-        
-	} else {
-		echo "sorry";
-	}
-	*/
 	
 
 });
