@@ -31,7 +31,8 @@ class Account extends Eloquent {
     // return list of all accounts
     public static function getAccounts() {
 		$accounts = Array();
-		$collection = Account::all();
+		
+		$collection = Account::orderBy("name")->get();
 			foreach($collection as $account) {
 				$accounts[$account->id] = $account->name;
 			}
@@ -44,9 +45,9 @@ class Account extends Eloquent {
 		$site = $var->$type;
 		
 		 	if ($site) {
-					$td = '<td><a href="'.$site.'" target="_blank" /><img src="images/'.$type.'.png" height="30" width="30" /></a></td>';
+					$td = "<td><a href='".$site."' target='_blank' /><img src='images/".$type.".png' height='30' width='30' /></a></td>";
 				} else {
-					$td = '<td></td>';
+					$td = "<td></td>";
 				}
 			return $td;
 	}
@@ -57,14 +58,14 @@ class Account extends Eloquent {
 		
 		Log::info("query is " . $query);
 		if ($query==null) {
-			$collection = Account::orderBy('name')->get();
+			$collection = Account::orderBy("name")->get();
 		
 		} else {
 			$collection = Account::search($query);
 		}
 		
 		 	foreach($collection as $account){
-		 		$row = '<td>'.$account->name.'</a></td>';
+		 		$row = "<td>".$account->name."</a></td>";
 				$row .= Account::exist($account,"website");
 				$row .= Account::exist($account,"facebook");
 				$row .= Account::exist($account,"twitter");
