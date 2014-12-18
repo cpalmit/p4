@@ -21,20 +21,18 @@ Route::post('/search', 'AccountController@postSearch');
 Route::get('/create', 'AccountController@getCreate');
 Route::post('/create', 'AccountController@postCreate');
 
+Route::get('/select', 'AccountController@getSelect');
+Route::post('/select', 'AccountController@postSelect');
+
 Route::get('/edit/{id}', 'AccountController@getEdit');
 Route::post('/edit', 'AccountController@postEdit');
 
-Route::get('/select', 'AccountController@getSelect');
-Route::post('/select', 'AccountController@postSelect');
 Route::post('/delete', 'AccountController@postDelete');
 
 
 
-
 Route::get('/test', function() {
-	echo "<table class='table'><tbody>";
-	echo Account::printrow();
-	echo "</tbody></table>";
+	echo "You found my 'secret' test route. It served me well, so I decided to keep it.";
 		
 });
 

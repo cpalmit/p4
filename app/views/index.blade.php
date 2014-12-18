@@ -11,7 +11,7 @@
 		<a href="{{ action('AccountController@getSelect') }}" class="btn btn-primary">Edit account</a>
 		
 		<div class="form-group">
-			{{ Form::text('query', null, ['class'=>'form-control' , 'role'=>'search']) }} 
+			{{ Form::text('query', null, ['class'=>'form-control']) }} 
 		</div>
 		
 		<div class="form-group">	

@@ -73,15 +73,13 @@ class AccountController extends BaseController {
 	
 		$input = Input::all();
 		$id = $input['account'];
-		//Log::info("This is the id from postSelect" . $id);
 		return Redirect::action('AccountController@getEdit', array($id));
 	}
 
 	
 	// form to edit account
 	public function getEdit($id) {
-	
-		//Log::info("Look, it's getEdit! Here's the id " . $id);
+
 		$accounts=Account::getAccounts();
 
 		if (isset($id)) {

@@ -25,7 +25,6 @@
 	
 	<h2>Edit account for {{$account['name'] }} </h2>
 	
-	
 	{{ Form::open(['url' => url('/edit'), 'class' => 'form-horizontal', 'role'=> 'form'])  }}
 		
 		{{ Form::hidden('id',$account['id']) }}
