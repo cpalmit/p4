@@ -90,7 +90,7 @@ class SocialDirectorySeeder extends Seeder {
 		$crew->save();
 		
 		$soccer= new Account;
-		$soccer->name = "Varsity Crew";
+		$soccer->name = "Varsity Soccer";
 		$soccer->website = "http://www.wellesleyblue.com/sports/wsoc/index";
 		$soccer->facebook = "https://www.facebook.com/pages/Wellesley-Womens-Soccer/194086164740";
 		$soccer->twitter = "https://twitter.com/WellesleySoc";
