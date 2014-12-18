@@ -14,9 +14,10 @@
 	@endif
 	
 	<h1>Wellesley College Social Media Directory</h1>
-	</div>
+	
 
 	@yield("content")
-	</div>
+	</div> <!--/.row-->
+	</div> <!--/.container-->
 </body>
 </html>

@@ -5,11 +5,32 @@
 @stop
 
 @section("content")
+
+	
+
+	<!-- select account to edit-->
+	
+	<p>Select the account you want to edit.</p>
+	{{ Form::open(['url' => url('/select'), 'class' => 'form-horizontal', 'role'=> 'form'])  }}
+	
+	<div class="form-group">
+		{{ Form::label('account_id', 'Accounts') }}
+		{{ Form::select('account', $accounts, $account['id'], ['class'=>'form-control']) }}
+	</div>
+	
+	{{ Form::submit('Select',['class'=>'btn btn-default']) }}
+	{{ Form::close() }}
+	
+	
+	
+	
+	
 	<h2>Edit account for {{$account['name'] }} </h2>
+	
 	
 	{{ Form::open(['url' => url('/edit'), 'class' => 'form-horizontal', 'role'=> 'form'])  }}
 		
-		{{ Form::hidden('id',$account['id']); }}
+		{{ Form::hidden('id',$account['id']) }}
 		
 		<div class="form-group">
 		{{ Form::label('name', 'Name') }}
@@ -66,4 +87,6 @@
 		<button onClick='parentNode.submit();return false;' class="btn btn-default">Delete</button>
 	{{ Form::close() }}
 
+	
+	
 @stop

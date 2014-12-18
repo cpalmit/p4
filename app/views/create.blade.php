@@ -5,7 +5,7 @@
 @stop
 
 @section("content")
-<div class="row">
+
 	<h2>Add an Account</h2>
 	
 
@@ -60,5 +60,5 @@
 	</div>
 	
 	{{ Form::close() }}
-	</div>
+	
 @stop
