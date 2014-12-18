@@ -8,7 +8,7 @@ Create a social media directory that allows users to see the breadth and depth o
 well as search for a specific account. Additional functionality includes the ability to add, edit, and delete an account.
 
 ##Demo
-Will update this link [demo](http://www.screencast.com/t/)
+[demo](http://screencast.com/t/Plz7v1ttdwR) (volume is a little low)
 
 ##Details
 Social media icons courtesy of [Graphics Fuel](http://www.graphicsfuel.com/2013/06/simple-flat-social-media-icons-psd-png/).
