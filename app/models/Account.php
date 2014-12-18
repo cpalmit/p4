@@ -56,7 +56,7 @@ class Account extends Eloquent {
 	public static function printrows($query) {
 	
 		
-		Log::info("query is " . $query);
+		//Log::info("query is " . $query);
 		if ($query==null) {
 			$collection = Account::orderBy("name")->get();
 		
