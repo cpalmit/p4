@@ -100,7 +100,7 @@ class SocialDirectorySeeder extends Seeder {
 		$tower= new Account;
 		$tower->name = "Tower Hall";
 		$tower->twitter = "https://twitter.com/TowerCourtTweet";
-		$tower->category()->associate($dorm);
+		$tower->category()->associate($dorms);
 		$tower->save();
 		
 	}
