@@ -83,10 +83,11 @@ class AccountController extends BaseController {
 		$accounts=Account::getAccounts();
 
 		if (isset($id)) {
-			$account = Account::where("id","=",$id)->findorFail($id);
+			$account = Account::findorFail($id);
+			
 			// get all the categories in case you want to change that
 			$categories=Category::getCategory();
-			//Log::info("made it to the if");
+			
 			return View::make("edit")
     			->with("account", $account)
     			->with("accounts", $accounts)
@@ -101,7 +102,7 @@ class AccountController extends BaseController {
 	public function postEdit() {
 		try {
 			$id = Input::get("id");
-			$account = Account::where("id","=",$id)->findorFail($id);
+			$account = Account::findorFail($id);
 	    } catch(exception $e) {
 	        return Redirect::action("AccountController@getIndex")->with("flash_message", "Account not found");
 	    }
